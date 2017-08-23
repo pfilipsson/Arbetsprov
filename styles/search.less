@@ -1,0 +1,151 @@
+html{
+  height: 100%;
+}
+
+body{
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  background: #002650; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#002650, #3A56A4); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#002650, #3A56A4); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#002650, #3A56A4); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#002650, #3A56A4); /* Standard syntax */
+
+  font-size: 20px;
+}
+
+.root{
+  width: 100%;
+
+  header{
+    margin: 3em 0 2.5em 0;
+
+    .logo{
+      width: 100%;
+      height: 40px;
+      background-image: url("../images/logo.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 50% 50%;
+    }
+  }
+
+  main{
+    .searchform{
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 15px;
+
+      .query{
+        color: rgba(255,255,255,.50);
+
+        ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+          color: rgba(255,255,255,.50);
+          letter-spacing: 1px;
+        }
+        :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+          color: rgba(255,255,255,.50);
+          opacity:  1;
+          letter-spacing: 1px;
+        }
+        ::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color: rgba(255,255,255,.50);
+           opacity:  1;
+        }
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+          color: rgba(255,255,255,.50);
+          letter-spacing: 1px;
+        }
+
+        input[type=text]{
+          box-sizing: border-box;
+          position: relative;
+          width: 100%;
+          padding: 1em;
+          padding-left: 2.75em;
+          border: none;
+          background-color: rgba(255,255,255,.50);
+          color: white;
+          border-radius: 4px;
+
+          background-image: url("../images/search.svg");
+          background-repeat: no-repeat;
+          background-size: 20px 20px;
+          background-position: 1em 50%;
+
+          &:focus,
+          &:active{
+            background-color: rgba(255,255,255,.60);
+            outline: none;
+          }
+        }
+      }
+    }
+
+    .searchhistory{
+      margin: 1em 0;
+      padding: 10px 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, .12);
+
+      .queries{
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        list-style: none;
+        padding: 0;
+
+        li.query{
+          cursor: pointer;
+          display: flex;
+          width: 100%;
+          line-height: 3em;
+
+          .string{
+            flex: 1;
+            vertical-align: middle;
+            color: white;
+            padding-left: 15px;
+          }
+
+          .date{
+            flex-basis: 200px;
+            vertical-align: middle;
+            color: white;
+            font-size: 0.8em;
+          }
+
+          .delete-action{
+            display: none;
+            flex-basis: 60px;
+            background-color: rgba(red(red), green(red), blue(red), 0.5);
+            text-align: center;
+
+            .material-icons{
+              color: white;
+              vertical-align: middle;
+              margin-top: 3px;
+            }
+          }
+
+          &:hover{
+            background-color: rgba(255, 255,255, 0.12);
+
+            .date{
+              flex-basis: 140px;
+            }
+
+            .delete-action{
+              display: inline-block;
+            }
+
+          }
+        }
+      }
+    }
+  }
+}

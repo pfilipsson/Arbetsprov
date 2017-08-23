@@ -1,20 +1,44 @@
 'use strict';
 
 import React, { Component } from 'react';
+import SearchForm from '../components/searchform';
+import SearchHistory from '../components/searchhistory';
 
 class SearchApp extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+	constructor ( props )
+	{
+		super( props );
+
+		this.state = {
+			queries: [
+				{
+					queryString: "Hamsters",
+					queryDate: "2015-11-02T11:00:00.000Z"
+				},
+				{
+					queryString: "Cats",
+					queryDate: "2015-11-02T11:01:00.000Z"
+				}
+
+			]
+		}
+	}
+
+	render() {
+		return (
+            <div className="root">
+                <header>
+                    <div className="logo"/>
+                </header>
+                <main>
+                    <SearchForm />
+                    <SearchHistory
+                        queries={ this.state.queries }
+                    />
+                </main>
+            </div>
+		);
+	}
 }
 
 export default SearchApp;
