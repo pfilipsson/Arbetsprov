@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import SearchResults from '../searchresults';
 import axios from 'axios';
+import debounce from 'lodash/debounce'
 
 class SearchForm extends Component {
 	static propTypes = {
@@ -49,8 +50,7 @@ class SearchForm extends Component {
 		}
 	}
 
-	search( queryString )
-	{
+	search = debounce(( queryString ) => {
 		if ( queryString.length < 2 )
 		{
 			this.clearSearchResults();
@@ -70,7 +70,7 @@ class SearchForm extends Component {
 			    console.log(error.response)
 			});
 		}
-	}
+	}, 300);
 
 	render() {
 		return (
