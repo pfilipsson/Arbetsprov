@@ -3,7 +3,6 @@ html{
 }
 
 body{
-  height: 100%;
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -41,6 +40,10 @@ body{
       padding: 0 15px;
 
       .query{
+        position: relative;
+        display: inline-block;
+        width: 100%;
+
         color: rgba(255,255,255,.50);
 
         ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -81,6 +84,49 @@ body{
           &:active{
             background-color: rgba(255,255,255,.60);
             outline: none;
+          }
+        }
+
+        .searchresults{
+          margin-top: 2px;
+          position: absolute;
+          display: none;
+          box-sizing: border-box;
+          width: 100%;
+          padding: 0;
+          background-color: white;
+          max-width: 700px;
+          max-height: 401px;
+          overflow: scroll;
+          margin-left: auto;
+          margin-right: auto;
+          z-index: 1;
+          border-radius: 3px;
+          color: rgba(0,0,0,.87);
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+          .results{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            .clearfix;
+
+            li{
+              padding: 0.5em;
+              line-height: 1.5em;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              border-bottom:1px solid rgba(0,0,0,.12);
+
+              &:last-child{
+                border-bottom: none;
+              }
+            }
+          }
+
+          &.has-results{
+            display: block;
           }
         }
       }
@@ -148,4 +194,15 @@ body{
       }
     }
   }
+}
+
+.clearfix{
+  &:before,
+    &:after {
+      content: " "; // 1
+      display: table; // 2
+    }
+    &:after {
+      clear: both;
+    }
 }
